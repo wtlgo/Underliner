@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -653,7 +655,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Underliner" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
@@ -665,8 +667,9 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="Ckk-yw-fiv">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="480" y="369" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="480" height="270"/>
                     </window>
                     <connections>
                         <segue destination="5gI-5U-AMq" kind="relationship" relationship="window.shadowedContentViewController" id="nsd-lR-9xd"/>
@@ -679,29 +682,143 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="5gI-5U-AMq" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5gI-5U-AMq" customClass="ViewController" customModule="Underliner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="ERx-hH-rdd">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" preferredMaxLayoutWidth="246" translatesAutoresizingMaskIntoConstraints="NO" id="TyV-c9-G0C">
-                                <rect key="frame" x="115" y="124" width="250" height="22"/>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Your document contents here" id="Cc7-nU-5Mv">
-                                    <font key="font" metaFont="system" size="18"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <scrollView identifier="TextToEdit" fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxB-Mr-6Qm" userLabel="TextToEdit">
+                                <rect key="frame" x="20" y="44" width="262" height="247"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                <clipView key="contentView" ambiguous="YES" id="82H-hW-cAJ">
+                                    <rect key="frame" x="1" y="1" width="260" height="245"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView ambiguous="YES" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="E01-LJ-E8A">
+                                            <rect key="frame" x="0.0" y="0.0" width="260" height="245"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="minSize" width="260" height="245"/>
+                                            <size key="maxSize" width="463" height="10000000"/>
+                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="Aka-55-pWW">
+                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="x2h-jF-wOG">
+                                    <rect key="frame" x="245" y="1" width="16" height="245"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <scrollView identifier="TextToRemove" wantsLayer="YES" fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xy7-Bk-GHY">
+                                <rect key="frame" x="290" y="44" width="170" height="174"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
+                                <clipView key="contentView" ambiguous="YES" id="2AE-da-mWG">
+                                    <rect key="frame" x="1" y="1" width="168" height="172"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView ambiguous="YES" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="pqI-g2-XFS">
+                                            <rect key="frame" x="0.0" y="-1" width="168" height="172"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="minSize" width="168" height="172"/>
+                                            <size key="maxSize" width="463" height="10000000"/>
+                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="mMe-Uc-ciS">
+                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Ehn-3O-8dl">
+                                    <rect key="frame" x="153" y="1" width="16" height="172"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <accessibility identifier="TextToRemove"/>
+                            </scrollView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LxK-Gn-WBe">
+                                <rect key="frame" x="18" y="299" width="40" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Текст" id="fLG-aF-CXo">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q2W-bK-r0r">
+                                <rect key="frame" x="288" y="226" width="74" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Что убрать" id="Rt2-1d-UvH">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button identifier="ButtonStart" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lsH-IN-VXU">
+                                <rect key="frame" x="14" y="13" width="451" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <buttonCell key="cell" type="push" title="Вперед!" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mVU-uv-lF2">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="ChangeText:" target="5gI-5U-AMq" id="krJ-6X-9w6"/>
+                                </connections>
+                            </button>
+                            <button ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sDh-1i-Ni6">
+                                <rect key="frame" x="286" y="287" width="162" height="22"/>
+                                <buttonCell key="cell" type="check" title="Игнорировать шрифт" bezelStyle="regularSquare" imagePosition="left" inset="2" id="ytS-N9-Ueq">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oez-Up-AU8">
+                                <rect key="frame" x="288" y="269" width="165" height="18"/>
+                                <buttonCell key="cell" type="check" title="Игнорировать ширину" bezelStyle="regularSquare" imagePosition="left" inset="2" id="54y-kv-C17">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="obc-ui-UWU">
+                                <rect key="frame" x="288" y="249" width="176" height="18"/>
+                                <buttonCell key="cell" type="check" title="Игнорировать ударения" bezelStyle="regularSquare" imagePosition="left" inset="2" id="AV0-uy-LqW">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="TyV-c9-G0C" secondAttribute="centerY" id="Rxv-Yd-F43"/>
-                            <constraint firstAttribute="centerX" secondItem="TyV-c9-G0C" secondAttribute="centerX" id="Zn4-Y4-lbg"/>
+                            <constraint firstItem="pqI-g2-XFS" firstAttribute="leading" secondItem="sDh-1i-Ni6" secondAttribute="trailing" constant="-153" id="7If-aK-1Ns"/>
+                            <constraint firstItem="pqI-g2-XFS" firstAttribute="top" secondItem="sDh-1i-Ni6" secondAttribute="bottom" constant="72" id="8DL-3b-7Xx"/>
+                            <constraint firstItem="Q2W-bK-r0r" firstAttribute="leading" secondItem="pqI-g2-XFS" secondAttribute="leading" id="BEy-5q-FhB"/>
+                            <constraint firstItem="Oez-Up-AU8" firstAttribute="leading" secondItem="pqI-g2-XFS" secondAttribute="leading" id="Cfd-WW-eS7"/>
+                            <constraint firstItem="E01-LJ-E8A" firstAttribute="top" secondItem="LxK-Gn-WBe" secondAttribute="bottom" constant="9" id="FpD-5E-nPx"/>
+                            <constraint firstItem="pqI-g2-XFS" firstAttribute="top" secondItem="obc-ui-UWU" secondAttribute="bottom" constant="34" id="FtK-HO-mUa"/>
+                            <constraint firstItem="obc-ui-UWU" firstAttribute="leading" secondItem="pqI-g2-XFS" secondAttribute="leading" id="Gm2-m1-PxQ"/>
+                            <constraint firstItem="pqI-g2-XFS" firstAttribute="top" secondItem="Oez-Up-AU8" secondAttribute="bottom" constant="54" id="KX4-l5-aBP"/>
+                            <constraint firstItem="pqI-g2-XFS" firstAttribute="leading" secondItem="sDh-1i-Ni6" secondAttribute="trailing" constant="-153" id="UMs-Of-ygC"/>
+                            <constraint firstItem="sDh-1i-Ni6" firstAttribute="leading" secondItem="pqI-g2-XFS" secondAttribute="leading" id="UfT-Mt-bXp"/>
+                            <constraint firstItem="LxK-Gn-WBe" firstAttribute="leading" secondItem="E01-LJ-E8A" secondAttribute="leading" id="bwe-oI-ECg"/>
+                            <constraint firstItem="pqI-g2-XFS" firstAttribute="top" secondItem="Q2W-bK-r0r" secondAttribute="bottom" constant="9" id="goU-1h-bgL"/>
+                            <constraint firstItem="pqI-g2-XFS" firstAttribute="leading" secondItem="Oez-Up-AU8" secondAttribute="trailing" constant="-160" id="mhN-VJ-58v"/>
+                            <constraint firstItem="pqI-g2-XFS" firstAttribute="leading" secondItem="Oez-Up-AU8" secondAttribute="trailing" constant="-160" id="uJX-tE-qFO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="FontCheck" destination="ytS-N9-Ueq" id="6Ft-A4-gqI"/>
+                        <outlet property="TextToEdit" destination="yxB-Mr-6Qm" id="ZW9-MI-tmW"/>
+                        <outlet property="TextToRemove" destination="Xy7-Bk-GHY" id="YbP-rx-1z6"/>
+                        <outlet property="WidthCheck" destination="54y-kv-C17" id="0vX-Sx-Dn5"/>
+                        <outlet property="WtfCheck" destination="AV0-uy-LqW" id="mdV-zY-RLn"/>
+                    </connections>
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="705"/>
         </scene>
     </scenes>
 </document>
